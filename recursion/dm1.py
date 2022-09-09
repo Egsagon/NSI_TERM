@@ -1,14 +1,17 @@
+#!/usr/bin/python3
+
 # === Ex7 ===
 
-def li_cat(n, l = []):
-    if n in (0, 1): return set(l + [1])
-    n -= 1
+def li_cat(n):
+    if n == 0: return [1]
     
-    li = [sum(li_cat(i)) * sum(li_cat(n - i)) for i in range(n)]
-        
-    return li_cat(n, l + li)
+    n -= 1
+    l = li_cat(n)
+    
+    return l + [sum([l[i] * l[n - i] for i in range(n + 1)])]
 
 # print(li_cat(7))
+# TODO: include l as an argument
 
 # === Ex9 ===
 
