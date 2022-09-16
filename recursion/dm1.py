@@ -13,6 +13,7 @@ def cat(n: int) -> list:
 
 # print(cat(7))
 
+'''
 def par(n: int, li = []) -> list:
     if not n: return ['']
     if n == 1: return [''.join(PAR)]
@@ -21,6 +22,13 @@ def par(n: int, li = []) -> list:
             for i in range(n)
                 for b in par(i)
                     for a in par(n - 1 - i)]
+'''
+
+def par(n: int, li = []) -> list:
+    if not n: return ['']
+    if n == 1: return [''.join(PAR)]
+    
+    return [PAR[0] + str(b) + PAR[1] + str(a) for i in range(n) for b in par(i) for a in par(n - 1 - i)]
 
 # print(par(3))
 
